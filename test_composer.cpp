@@ -3,8 +3,7 @@
 
 using namespace std;
 
-/*int main()
-{
+/*int main() {
 	cout << endl << "Testing the Composer class." << endl << endl;
 
 	Composer composer;

@@ -21,13 +21,16 @@
     <ClCompile Include="Database.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Interface.h">
+    <ClCompile Include="DatabaseInterface.h">
       <Filter>Header Files</Filter>
     </ClCompile>
     <ClCompile Include="test_composer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="test_Database.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

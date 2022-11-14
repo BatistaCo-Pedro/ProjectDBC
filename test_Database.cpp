@@ -3,7 +3,7 @@
 #include "Database.h"
 #include "Exceptions.h"
 
-using namespace std;
+/*using namespace std;
 Database database;
 
 void setDatabaseMockupValues() {
@@ -16,8 +16,7 @@ void setDatabaseMockupValues() {
 	database.addComposer_back(Composer("Reno", "Beethoven", 1770, "Comedy", "Hes dead", 10));
 }
 
-int main()
-{
+int main(){
 	setDatabaseMockupValues();
 	cout << endl << "Testing the Database class." << endl << endl;
 	try {	
@@ -47,4 +46,4 @@ int main()
 		cout << ex.message() << endl << endl;
 	}
 	database.display();
-}
+}*/
