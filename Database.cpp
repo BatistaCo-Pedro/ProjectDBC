@@ -16,6 +16,19 @@ Database::~Database() {
 	cout << "Destructor called for Database class" << endl;
 }
 
+Composer Database::createComposer() {
+	string firstName, lastName, composerGenre, fact;
+	int yearOfBirth, ranking;
+	cout << "*****************************************************" << endl
+		<< "First name: ", cin >> firstName, cout << endl << "Last name: ", cin >> lastName, cout << endl
+		<< "Year of birth: ", cin >> yearOfBirth, cout << endl
+		<< "Genre: ", cin >> composerGenre, cout << endl << "Fact: ", cin >> fact, cout << endl
+		<< "Ranking: ", cin >> ranking, cout << endl
+		<< "*****************************************************" << endl;
+	Composer comp(firstName, lastName, yearOfBirth, composerGenre, fact, ranking);
+	return comp;
+}
+
 Composer& Database::addComposer_back(Composer composer) {
 	this->composerDatabase_.push_back(composer);
 	return composer;
