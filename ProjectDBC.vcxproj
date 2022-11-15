@@ -143,6 +143,7 @@
     <ClCompile Include="Composer.cpp" />
     <ClCompile Include="Database.cpp" />
     <ClCompile Include="DatabaseInterface.h" />
+    <ClCompile Include="handlerMethods.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="test_Database.cpp" />
     <ClCompile Include="test_composer.cpp" />
@@ -152,6 +153,7 @@
     <ClInclude Include="Database.h" />
     <ClInclude Include="Exceptions.h" />
     <ClInclude Include="DBAlgorithms.h" />
+    <ClInclude Include="handlerMethods.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

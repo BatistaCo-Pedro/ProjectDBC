@@ -30,4 +30,20 @@ namespace DatabaseInterface {
 			<< "0) Back" << endl
 			<< "*****************************************************" << endl;
 	}
+
+	inline void printComposersRankingMenu() {
+		cout << "*****************************************************" << endl
+			<< "1) Promote Composer " << endl
+			<< "2) Demote Composer " << endl
+			<< "0) Quit" << endl
+			<< "*****************************************************" << endl;
+	}
+
+	inline void printChooseComposerMenu() {
+		cout << "*****************************************************" << endl
+			<< "1) Choose Composer " << endl
+			<< "2) Choose Composer by name " << endl
+			<< "0) Quit" << endl
+			<< "*****************************************************" << endl;
+	}
 }

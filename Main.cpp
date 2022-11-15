@@ -1,75 +1,9 @@
-#include "Composer.h"
-#include "DatabaseInterface.h"
-#include "Database.h"
 #include <iostream>
 #include <string>
-#include "Exceptions.h"
+#include "DatabaseInterface.h"
+#include "handlerMethods.h"
 
 using namespace DatabaseInterface;
-Database database;
-
-void handleAddingComposerMenu() {
-	int response = 1;
-	while (response != 0) {
-		int index;
-		printAddingComposerMenu();
-		cin >> response;
-		if (response == 1) {
-			database.addComposer_back(database.createComposer());
-			return;
-		}
-		if (response == 2) {
-			database.addComposer_front(database.createComposer());
-			return;
-		}
-		if (response == 3) {
-			cout << endl << "What index? ", cin >> index, cout << endl;
-			if (database.checkIfIndexIsOutOfBounds(index)) {
-				cout << "Index is out of bounds" << endl;
-				continue;
-			}
-			database.addComposer_at(database.createComposer(), index);
-		}		
-	}
-	return;
-}
-
-void handleDisplayingTheElements() {
-	int response = 1;
-	if (!database.containsItems()) {
-		cout << "Database contains no items" << endl << endl;
-		return;
-	}
-	while (response != 0) {
-		printDisplayMenu();
-		cin >> response;
-		if (response == 1) {
-			database.display();
-			return;
-		}
-		if (response == 2) {
-			database.displayByRank();
-			return;
-		}
-	}
-	return;
-}
-
-void handleComposerDataRetrieval() {
-	if (!database.containsItems()) {
-		cout << "Database contains no items" << endl << endl;
-		return; 
-	}
-	string firstName, lastName;
-	cout << "Composers first name: ", cin >> firstName, 
-	cout << "Composers last name: ", cin >> lastName;
-	try {
-		Composer comp = database.getComposer(firstName, lastName);
-		comp.display();
-	} catch (NotFoundException ex) {
-		cout << ex.message() << endl;
-	}
-}
 
 int& handleMenuChoices() {
 	int response = -1;
@@ -78,13 +12,13 @@ int& handleMenuChoices() {
 		switch (response) {
 			default: cout << "Invalid number, try again: " << endl;
 				break;
-			case 1: handleAddingComposerMenu();
+			case 1: handlerMethods::handleAddingComposerMenu();
 				return response;
-			case 2: handleComposerDataRetrieval();
+			case 2: handlerMethods::handleComposerDataRetrieval();
 				return response;
-			case 3: 
+			case 3: handlerMethods::handleComposersRanking();
 				return response;
-			case 4: handleDisplayingTheElements();
+			case 4: handlerMethods::handleDisplayingTheElements();
 				return response;
 			case 0: return response;
 		}	

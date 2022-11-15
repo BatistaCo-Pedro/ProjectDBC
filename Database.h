@@ -21,8 +21,9 @@ class Database {
 		void removeComposer_front();
 		void removeComposer_at(int);
 
-		bool containsItems() { return composerDatabase_.size() > 0; }
-		bool checkIfIndexIsOutOfBounds(int index) { return ((index > this->composerDatabase_.size()) || (index < 0)); }
+		inline bool containsItems() { return composerDatabase_.size() > 0; }
+		inline list<Composer> getList() { return composerDatabase_; }
+		inline bool checkIfIndexIsOutOfBounds(int index) { return ((index > this->composerDatabase_.size()) || (index < 0)); }
 
 		Composer& getComposer(string in_firstName, string in_lastName);
 		Composer& getComposer(string in_firstName);

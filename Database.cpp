@@ -22,9 +22,9 @@ Composer Database::createComposer() {
 	cout << "*****************************************************" << endl
 		<< "First name: ", cin >> firstName, cout << "Last name: ", cin >> lastName, cout
 		<< "Year of birth: ", cin >> yearOfBirth, cout
-		<< "Genre: ", cin.ignore(), getline(cin, composerGenre);
-		cout << "Fact: ", cin.ignore(), getline(cin, fact); 
-		cout << "Ranking: ", cin >> ranking, cout << endl
+		<< "Genre: ", cin.ignore(), getline(cin, composerGenre),cout 
+		<< "Fact: ", getline(cin, fact),cout 
+		<< "Ranking: ", cin >> ranking, cout << endl
 		<< "*****************************************************" << endl;
 	Composer comp(firstName, lastName, yearOfBirth, composerGenre, fact, ranking);
 	return comp;
