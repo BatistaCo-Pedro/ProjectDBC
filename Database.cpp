@@ -20,10 +20,11 @@ Composer Database::createComposer() {
 	string firstName, lastName, composerGenre, fact;
 	int yearOfBirth, ranking;
 	cout << "*****************************************************" << endl
-		<< "First name: ", cin >> firstName, cout << endl << "Last name: ", cin >> lastName, cout << endl
-		<< "Year of birth: ", cin >> yearOfBirth, cout << endl
-		<< "Genre: ", cin >> composerGenre, cout << endl << "Fact: ", cin >> fact, cout << endl
-		<< "Ranking: ", cin >> ranking, cout << endl
+		<< "First name: ", cin >> firstName, cout << "Last name: ", cin >> lastName, cout
+		<< "Year of birth: ", cin >> yearOfBirth, cout
+		<< "Genre: ", cin.ignore(), getline(cin, composerGenre);
+		cout << "Fact: ", cin.ignore(), getline(cin, fact); 
+		cout << "Ranking: ", cin >> ranking, cout << endl
 		<< "*****************************************************" << endl;
 	Composer comp(firstName, lastName, yearOfBirth, composerGenre, fact, ranking);
 	return comp;
@@ -41,10 +42,7 @@ Composer& Database::addComposer_front(Composer composer) {
 
 Composer& Database::addComposer_at(Composer composer, int index) {
 	auto insertionIndex = this->composerDatabase_.begin();
-	if ((index > this->composerDatabase_.size() - 1) || (index < 0)) {
-		cout << endl << "Index " << index << " is out of bounds" << endl << endl;
-		return composer;
-	}
+	if (checkIfIndexIsOutOfBounds(index)) return composer;
 	advance(insertionIndex, index);
 	this->composerDatabase_.insert(insertionIndex, composer);
 	return composer;

@@ -24,6 +24,10 @@ void handleAddingComposerMenu() {
 		}
 		if (response == 3) {
 			cout << endl << "What index? ", cin >> index, cout << endl;
+			if (database.checkIfIndexIsOutOfBounds(index)) {
+				cout << "Index is out of bounds" << endl;
+				continue;
+			}
 			database.addComposer_at(database.createComposer(), index);
 		}		
 	}
@@ -32,6 +36,10 @@ void handleAddingComposerMenu() {
 
 void handleDisplayingTheElements() {
 	int response = 1;
+	if (!database.containsItems()) {
+		cout << "Database contains no items" << endl << endl;
+		return;
+	}
 	while (response != 0) {
 		printDisplayMenu();
 		cin >> response;
@@ -78,7 +86,7 @@ int& handleMenuChoices() {
 				return response;
 			case 4: handleDisplayingTheElements();
 				return response;
-			case 5: return response;
+			case 0: return response;
 		}	
 	}
 	return response;
