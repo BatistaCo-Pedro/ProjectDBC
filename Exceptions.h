@@ -8,3 +8,6 @@ struct NotFoundException : public exception {
 		return "Element doesnt exist in Container";
 	}
 };
+
+struct QuitException : public exception {
+};

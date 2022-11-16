@@ -102,6 +102,7 @@ Composer& handlerMethods::handleComposerSearchChoice() {
 			return database.getComposer(firstName, lastName);
 		}
 	}
+	throw QuitException();
 }
 
 void handlerMethods::handleComposersRanking() {
@@ -130,8 +131,9 @@ void handlerMethods::handleComposersRanking() {
 			}
 		} catch (NotFoundException ex) {
 			cout << ex.message() << endl;
+		} catch (QuitException ex) {
+			return;
 		}
-		
 	}
 	return;
 }
