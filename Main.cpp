@@ -24,7 +24,7 @@ int& handleMenuChoices() {
 		}	
 	}
 	return response;
-}
+} 
 
 int main() {
 	int response = -1;

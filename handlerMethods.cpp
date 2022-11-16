@@ -151,5 +151,5 @@ void handlerMethods::handleComposersRanking() {
 			return;
 		}
 	}
-	return;
+	return; 
 }

@@ -4,7 +4,7 @@
 using namespace std;
 
 namespace DatabaseInterface {
-	inline void printMenu() {
+	inline void printMenu() { 
 		cout << "*****************************************************" << endl
 			<< "1) Add a new Composer" << endl
 			<< "2) Retrieve a composers data" << endl

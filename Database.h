@@ -9,7 +9,7 @@ class Database {
 	public:
 		Database();
 		~Database();
-
+		
 		Composer createComposer();
 		Composer& addComposer_back(Composer);
 		Composer& addComposer_front(Composer);
@@ -28,5 +28,5 @@ class Database {
 		Composer& getComposer(string in_firstName);
 
 		void display();
-		void displayByRank();
+		void displayByRank(); 
 };

@@ -7,9 +7,9 @@
 
 using namespace std;
 
-Database::Database() {}
+Database::Database() { }
 
-Database::~Database() {}
+Database::~Database() { }
 
 int getCorrectRankingInput() {
 	int ranking = 0;

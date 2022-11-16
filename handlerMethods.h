@@ -10,4 +10,3 @@ class handlerMethods
 		static void handleComposersRanking();
 		static Composer& handleComposerSearchChoice();
 };
-

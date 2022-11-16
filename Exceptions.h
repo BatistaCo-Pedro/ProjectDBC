@@ -9,5 +9,4 @@ struct NotFoundException : public exception {
 	}
 };
 
-struct QuitException : public exception {
-};
+struct QuitException : public exception { };

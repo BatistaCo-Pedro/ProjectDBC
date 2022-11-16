@@ -30,7 +30,7 @@ class Composer {
         void demote(int decrement);
         void display();
 
-        inline bool operator < (const Composer& comp) const {
+        inline bool operator < (const Composer& comp) const { 
             return ranking_ < comp.ranking_;
         }
 };

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Composer::Composer() {};
+Composer::Composer() { };
 
 Composer::Composer(string in_firstName, string in_lastName, int in_YearOfBirth,
 					string in_composerGenre, string in_fact, int in_ranking) {
