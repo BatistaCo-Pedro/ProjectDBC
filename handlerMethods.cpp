@@ -89,8 +89,10 @@ Composer& handlerMethods::handleComposerSearchChoice() {
 				composerMap[iterator] = element;
 				iterator++;
 			}
-			while(composerChoice)
-			cin >> composerChoice;
+			cout << endl << "Which composer do you want to chose? ", cin >> composerChoice;
+			while (composerChoice >= iterator || composerChoice <= 0) {
+				cout << endl << "That composer doesnt exist, try again: ", cin >> composerChoice;
+			}		
 			Composer comp = composerMap.find(composerChoice)->second;
 			return database.getComposer(comp.getFirstName(), comp.getLastName());
 		}
