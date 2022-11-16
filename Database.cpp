@@ -96,6 +96,12 @@ void Database::display() {
 	}
 }
 
+void compareRanking(const int& rankOne, const int& rankTwo) {
+	unsigned int i = 0;
+	while()
+}
+
 void Database::displayByRank() {
+	composerDatabase_.sort();
 
 }
