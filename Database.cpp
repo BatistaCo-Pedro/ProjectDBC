@@ -43,21 +43,14 @@ Composer& Database::addComposer_at(Composer composer, int index) {
 	return composer;
 }
 
-Composer& Database::removeComposer(Composer comp) {
+void Database::removeComposer(Composer comp) {
 	auto deletionIndex = composerDatabase_.begin();
 	for (auto& element : composerDatabase_) {
 		if ((element.getFirstName() == comp.getFirstName()) && (element.getLastName() == comp.getLastName())) {
 			this->composerDatabase_.erase(deletionIndex);
-			return comp;
 		}
 		deletionIndex++;
 	}
-	return comp;
-}
-
-Composer& Database::removeComposer(string in_firstName, string in_lastName, Database& database) {
-	Composer comp = database.getComposer(in_firstName, in_lastName);
-	return database.removeComposer(comp);
 }
 
 void Database::removeComposer_at(int index) {

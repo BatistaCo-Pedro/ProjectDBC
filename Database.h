@@ -15,8 +15,7 @@ class Database {
 		Composer& addComposer_front(Composer);
 		Composer& addComposer_at(Composer, int);
 
-		Composer& removeComposer(Composer);
-		Composer& removeComposer(string, string, Database&);
+		void removeComposer(Composer composer);
 		void removeComposer_back();
 		void removeComposer_front();
 		void removeComposer_at(int);
