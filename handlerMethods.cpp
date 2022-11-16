@@ -23,8 +23,7 @@ Composer& chooseComposer() {
 	int iterator = 1;
 	map<int, Composer> composerMap;
 	for (auto& element : database.getList()) {
-		cout << iterator << ") ";
-		element.display();
+		cout << iterator << ") " << element.getFirstName() << " " << element.getLastName() << endl;
 		composerMap[iterator] = element;
 		iterator++;
 	}
@@ -57,6 +56,7 @@ void handlerMethods::handleAddingComposerMenu() {
 				continue;
 			}
 			database.addComposer_at(database.createComposer(), index);
+			return;
 		}
 	}
 	return;

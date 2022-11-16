@@ -10,16 +10,29 @@ using namespace std;
 Database::Database() {}
 
 Database::~Database() {}
+
+int getCorrectRankingInput() {
+	int ranking = 0;
+	cout << "Ranking: ", cin >> ranking;
+	while (!cin >> ranking) {
+		cout << "Needs to be a number, try again: ", cin >> ranking;
+	}
+	while (ranking > 10 || ranking < 1) {
+		cout << "Number needs to be between 1-10" << endl << "Input new number: ", cin >> ranking;
+	}
+	return ranking;
+}
+
 Composer Database::createComposer() {
 	string firstName, lastName, composerGenre, fact;
 	int yearOfBirth, ranking;
 	cout << "*****************************************************" << endl
 		<< "First name: ", cin >> firstName, cout << "Last name: ", cin >> lastName, cout
 		<< "Year of birth: ", cin >> yearOfBirth, cout
-		<< "Genre: ", cin.ignore(), getline(cin, composerGenre),cout 
-		<< "Fact: ", getline(cin, fact),cout 
-		<< "Ranking: ", cin >> ranking, cout << endl
-		<< "*****************************************************" << endl;
+		<< "Genre: ", cin.ignore(), getline(cin, composerGenre), cout
+		<< "Fact: ", getline(cin, fact);
+	ranking = getCorrectRankingInput();
+	cout << "*****************************************************" << endl;
 	Composer comp(firstName, lastName, yearOfBirth, composerGenre, fact, ranking);
 	return comp;
 }
