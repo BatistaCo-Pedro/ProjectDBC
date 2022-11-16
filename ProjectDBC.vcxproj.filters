@@ -47,9 +47,6 @@
     <ClInclude Include="Exceptions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DBAlgorithms.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="handlerMethods.h">
       <Filter>Header Files</Filter>
     </ClInclude>
