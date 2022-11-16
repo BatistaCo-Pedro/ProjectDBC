@@ -89,22 +89,17 @@ Composer& handlerMethods::handleComposerSearchChoice() {
 				composerMap[iterator] = element;
 				iterator++;
 			}
+			while(composerChoice)
 			cin >> composerChoice;
 			Composer comp = composerMap.find(composerChoice)->second;
-			return comp;
+			return database.getComposer(comp.getFirstName(), comp.getLastName());
 		}
 		if (response == 2) {
 			string firstName, lastName;
 			cout << "First Name: ", cin >> firstName, cout << "Last Name: ", cin >> lastName;
-			try {
-				return database.getComposer(firstName, lastName);
-			} catch (NotFoundException ex) {
-				cout << ex.message() << endl;
-				break;
-			}
+			return database.getComposer(firstName, lastName);
 		}
 	}
-	throw exception();
 }
 
 void handlerMethods::handleComposersRanking() {
@@ -131,8 +126,8 @@ void handlerMethods::handleComposersRanking() {
 				comp.demote(decrement);
 				return;
 			}
-		} catch (exception ex) {
-			cout << "Get fucked " << endl;
+		} catch (NotFoundException ex) {
+			cout << ex.message() << endl;
 		}
 		
 	}
