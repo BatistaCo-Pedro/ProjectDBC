@@ -3,7 +3,6 @@
 #include <list>
 #include "Database.h"
 #include "Composer.h"
-#include "DBAlgorithms.h"
 #include "Exceptions.h"
 
 using namespace std;
@@ -96,12 +95,11 @@ void Database::display() {
 	}
 }
 
-void compareRanking(const int& rankOne, const int& rankTwo) {
-	unsigned int i = 0;
-	while()
-}
-
 void Database::displayByRank() {
-	composerDatabase_.sort();
-
+	list<Composer> listSortedByRank = composerDatabase_;
+	listSortedByRank.sort();
+	for (auto& element : listSortedByRank) {
+		element.display();
+		cout << endl;
+	}
 }
