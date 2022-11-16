@@ -4,9 +4,7 @@
 
 using namespace std;
 
-Composer::Composer() {
-	cout << "Constructor called for Composer class" << endl;
-};
+Composer::Composer() {};
 
 Composer::Composer(string in_firstName, string in_lastName, int in_YearOfBirth,
 					string in_composerGenre, string in_fact, int in_ranking) {
@@ -16,12 +14,9 @@ Composer::Composer(string in_firstName, string in_lastName, int in_YearOfBirth,
 	this->composerGenre_ = in_composerGenre;
 	this->fact_ = in_fact;
 	this->ranking_ = in_ranking;
-	cout << "Constructor called for Composer class" << endl;
 }
 
-Composer::~Composer() {
-	cout << "Destructor called for Composer class" << endl;
-}
+Composer::~Composer() {}
 
 void Composer::promote(int increment) {
 	char response = '.';

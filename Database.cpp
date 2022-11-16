@@ -8,14 +8,9 @@
 
 using namespace std;
 
-Database::Database() {
-	cout << "Constructor called for Database class" << endl;
-}
+Database::Database() {}
 
-Database::~Database() {
-	cout << "Destructor called for Database class" << endl;
-}
-
+Database::~Database() {}
 Composer Database::createComposer() {
 	string firstName, lastName, composerGenre, fact;
 	int yearOfBirth, ranking;

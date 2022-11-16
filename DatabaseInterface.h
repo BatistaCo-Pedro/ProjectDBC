@@ -46,4 +46,20 @@ namespace DatabaseInterface {
 			<< "0) Quit" << endl
 			<< "*****************************************************" << endl;
 	}
+
+	inline void printComposersDataRetrievalMenu() {
+		cout << "*****************************************************" << endl
+			<< "1) Choose Composer " << endl
+			<< "2) Choose Composer by name " << endl
+			<< "0) Quit" << endl
+			<< "*****************************************************" << endl;
+	}
+
+	inline void printComposersRemovalMenu() {
+		cout << "*****************************************************" << endl
+			<< "1) Choose Composer " << endl
+			<< "2) Choose Composer by name " << endl
+			<< "0) Quit" << endl
+			<< "*****************************************************" << endl;
+	}
 }

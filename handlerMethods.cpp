@@ -10,6 +10,32 @@ using namespace DatabaseInterface;
 
 Database database;
 
+bool DatabaseContainsItems() {
+	if (!database.containsItems()) {
+		cout << "Database contains no Composers" << endl << endl;
+		return false;
+	}
+	return true;
+}
+
+Composer& chooseComposer() {
+	int composerChoice = 0;
+	int iterator = 1;
+	map<int, Composer> composerMap;
+	for (auto& element : database.getList()) {
+		cout << iterator << ") ";
+		element.display();
+		composerMap[iterator] = element;
+		iterator++;
+	}
+	cout << endl << "Which composer do you want to chose? ", cin >> composerChoice;
+	while (composerChoice >= iterator || composerChoice <= 0) {
+		cout << endl << "That composer doesnt exist, try again: ", cin >> composerChoice;
+	}
+	Composer comp = composerMap[composerChoice];
+	return database.getComposer(comp.getFirstName(), comp.getLastName());
+}
+
 void handlerMethods::handleAddingComposerMenu() {
 	int response = 1;
 	while (response != 0) {
@@ -38,10 +64,7 @@ void handlerMethods::handleAddingComposerMenu() {
 
 void handlerMethods::handleDisplayingTheElements() {
 	int response = 1;
-	if (!database.containsItems()) {
-		cout << "Database contains no items" << endl << endl;
-		return;
-	}
+	if (!DatabaseContainsItems()) return;
 	while (response != 0) {
 		printDisplayMenu();
 		cin >> response;
@@ -58,43 +81,39 @@ void handlerMethods::handleDisplayingTheElements() {
 }
 
 void handlerMethods::handleComposerDataRetrieval() {
-	if (!database.containsItems()) {
-		cout << "Database contains no items" << endl << endl;
-		return;
-	}
-	string firstName, lastName;
-	cout << "Composers first name: ", cin >> firstName,
-		cout << "Composers last name: ", cin >> lastName;
-	try {
-		Composer comp = database.getComposer(firstName, lastName);
-		comp.display();
-	}
-	catch (NotFoundException ex) {
-		cout << ex.message() << endl;
+	if (!DatabaseContainsItems()) return;
+	int response = -1;
+	while (response != 0) {
+		printComposersDataRetrievalMenu();
+		cin >> response;
+		if (response == 1) {
+			Composer comp = chooseComposer();
+			comp.display();
+			return;
+		}
+		if (response == 2) {
+			string firstName, lastName;
+			cout << "Composers first name: ", cin >> firstName, cout << "Composers last name: ", cin >> lastName;
+			try {
+				Composer comp = database.getComposer(firstName, lastName);
+				comp.display();
+				return;
+			}
+			catch (NotFoundException ex) {
+				cout << ex.message() << endl;
+				return;
+			}
+		}
 	}
 }
 
 Composer& handlerMethods::handleComposerSearchChoice() {
 	int response = -1;
-	int iterator = 1;
-	map<int, Composer> composerMap;
 	while (response != 0) {
 		printChooseComposerMenu();
 		cin >> response;
 		if (response == 1) {
-			int composerChoice = 0;
-			for (auto& element : database.getList()) {
-				cout << iterator << ") ";
-				element.display();
-				composerMap[iterator] = element;
-				iterator++;
-			}
-			cout << endl << "Which composer do you want to chose? ", cin >> composerChoice;
-			while (composerChoice >= iterator || composerChoice <= 0) {
-				cout << endl << "That composer doesnt exist, try again: ", cin >> composerChoice;
-			}		
-			Composer comp = composerMap.find(composerChoice)->second;
-			return database.getComposer(comp.getFirstName(), comp.getLastName());
+			return chooseComposer();
 		}
 		if (response == 2) {
 			string firstName, lastName;
@@ -106,10 +125,7 @@ Composer& handlerMethods::handleComposerSearchChoice() {
 }
 
 void handlerMethods::handleComposersRanking() {
-	if (!database.containsItems()) {
-		cout << "Database contains no items" << endl << endl;
-		return;
-	}
+	if (!DatabaseContainsItems()) return;
 	int response = -1;
 	while (response != 0) {
 		try {
